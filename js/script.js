@@ -4,6 +4,9 @@ function loadPhone() {
   document.getElementById('avatar').classList.add('d-none');
 
   const searchText = searchField.value;
+  if (searchText === '') {
+    return alert('Invalid Input');
+  }
   /* Clear Search Keyword */
   searchField.value = '';
 
