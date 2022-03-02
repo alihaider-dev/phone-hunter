@@ -13,29 +13,42 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="bg-primary bg-opacity-25">
     <!-- Search Box Section-->
     <section class="bg-success bg-opacity-25 py-5">
-      <!-- Site Title -->
-      <div class="site-titles d-flex flex-column align-items-center mb-3">
-        <h3>Welcome to</h3>
-        <h1>Optical Mobile Mania</h1>
-      </div>
-      <!-- Search Box Input -->
-      <div class="w-50 mx-auto">
-        <div class="input-group mb-3">
-          <input
-            id="search-input"
-            type="text"
-            class="form-control"
-            placeholder="Name of mobile Brand or Model"
-            aria-label="Recipient's username"
-            aria-describedby="button-addon2"
-          />
-          <button class="btn-danger" type="button" id="button-addon2">
-            Button
-          </button>
+      <div class="container">
+        <!-- Site Title -->
+        <div class="site-titles d-flex flex-column align-items-center mb-3">
+          <h3>Welcome to</h3>
+          <h1>Optical Mobile Mania</h1>
         </div>
+        <!-- Search Box Input -->
+        <div class="w-50 mx-auto">
+          <div class="input-group mb-3">
+            <input
+              id="search-field"
+              type="text"
+              class="form-control"
+              placeholder="Name of mobile Brand or Model"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button
+              onclick="loadPhone()"
+              class="btn-danger"
+              type="button"
+              id="btn-search"
+            >
+              Button
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Search Result Section -->
+    <section>
+      <div class="container pt-3">
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4"></div>
       </div>
     </section>
 
