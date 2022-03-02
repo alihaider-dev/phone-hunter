@@ -26,7 +26,7 @@ const displayPhone = brands => {
         <img src="${element.image}" class="card-img-top img-fluid w-50 mx-auto pt-3" alt="..." />
         <div class="card-body">
           <h5 class="card-title text-center">${element.phone_name}</h5>
-          <p class="card-text text-center">${element.brand}</p>
+          <p class="card-text text-center">${element.brand}</p>          
         </div>
         <!-- Card Button -->
         <div class="card-footer d-grid">
@@ -61,13 +61,25 @@ const displayMobileSpecifications = (specifications) => {
       <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
-    <div class="modal-body">
-      <img src="${specifications.image}" class="card-img-top img-fluid w-50 mx-auto pt-3" alt="..." />
-      
+    <div class="modal-body row">
+      <div class="col-md-5">
+        <img src="${specifications.image}" class="card-img-top img-fluid w-100 mx-auto pt-3" alt="..." />
+      </div>
+      <div class="col-md-7">
+        <h5 class="card-title">${specifications.name}</h5>
+        <p class="card-title">${specifications.mainFeatures.storage}</p>
+        <hr>
+        <span><strong>Sensors:</strong> ${specifications.mainFeatures.sensors.join(', ')}</span> <br><br>
+        <span><strong>Chipset:</strong> ${specifications.mainFeatures.chipSet}</span><br><br>
+        <span><strong>Display Size:</strong> ${specifications.mainFeatures.displaySize}</span><br><br>
+        <span><strong>ROM/RAM Size:</strong> ${specifications.mainFeatures.memory}</span><br><br>
+        <span><strong>Release Date:</strong> ${specifications.releaseDate}</span><br><br>
+        
+        
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Understood</button>
     </div>
   `;
   mobileSpecification.appendChild(mobileSpecificationContainer)
