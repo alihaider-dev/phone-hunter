@@ -21,17 +21,13 @@ const displayPhone = brands => {
     columnContainer.classList.add('col-md-4');
     columnContainer.innerHTML = `
       <div class="card h-100">
-        <img src="${element.image}" class="card-img-top" alt="..." />
+        <img src="${element.image}" class="card-img-top img-fluid w-75 mx-auto pt-3" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">${element.phone_name}</h5>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit
-            longer.
-          </p>
+          <h5 class="card-title text-center">${element.phone_name}</h5>
+          <p class="card-text text-center">${element.brand}</p>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+        <div class="card-footer d-grid">
+          <button class="btn btn-danger">view details</button>
         </div>
       </div>
     `;
