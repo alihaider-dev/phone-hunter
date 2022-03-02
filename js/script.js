@@ -26,8 +26,11 @@ const displayPhone = brands => {
           <h5 class="card-title text-center">${element.phone_name}</h5>
           <p class="card-text text-center">${element.brand}</p>
         </div>
+        <!-- Card Button -->
         <div class="card-footer d-grid">
-          <button class="btn btn-danger">view details</button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            View Details
+          </button>
         </div>
       </div>
     `;
