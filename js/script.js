@@ -1,8 +1,10 @@
+/* Load Phone From API */
 function loadPhone() {
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value;
   /* Clear Search Keyword */
   searchField.value = '';
+
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText} `;
   fetch(url)
     .then(res => res.json())
@@ -10,25 +12,25 @@ function loadPhone() {
 }
 
 const displayPhone = brands => {
-  console.log(brands);
+  // console.log(brands);
   const searchResult = document.getElementById('search-result');
   /* Cleare Search Result */
-  // searchResult.textContent = '';
-
+  searchResult.textContent = '';
+  /* LOOP */
   brands.forEach(element => {
-    console.log(element);
+    // console.log(element);
     const columnContainer = document.createElement('div');
     columnContainer.classList.add('col-md-4');
     columnContainer.innerHTML = `
       <div class="card h-100">
-        <img src="${element.image}" class="card-img-top img-fluid w-75 mx-auto pt-3" alt="..." />
+        <img src="${element.image}" class="card-img-top img-fluid w-50 mx-auto pt-3" alt="..." />
         <div class="card-body">
           <h5 class="card-title text-center">${element.phone_name}</h5>
           <p class="card-text text-center">${element.brand}</p>
         </div>
         <!-- Card Button -->
         <div class="card-footer d-grid">
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <button onclick="loadMobileSpecifications('${element.slug}')" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             View Details
           </button>
         </div>
@@ -36,6 +38,38 @@ const displayPhone = brands => {
     `;
     searchResult.appendChild(columnContainer);
   });
+}
 
+
+/* Load Mobile Details From API  */
+const loadMobileSpecifications = (id) => {
+  const url = `https://openapi.programming-hero.com/api/phone/${id}`
+  console.log(url);
+  fetch(url)
+    .then(res => res.json())
+    .then(result => displayMobileSpecifications(result.data))
+}
+
+const displayMobileSpecifications = (specifications) => {
+  console.log(specifications);
+  const mobileSpecification = document.getElementById('mobile-specification');
+  mobileSpecification.textContent = '';
+  const mobileSpecificationContainer = document.createElement('div')
+  mobileSpecificationContainer.classList.add('modal-content');
+  mobileSpecificationContainer.innerHTML = `
+    <div class="modal-header">
+      <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <img src="${specifications.image}" class="card-img-top img-fluid w-50 mx-auto pt-3" alt="..." />
+      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Understood</button>
+    </div>
+  `;
+  mobileSpecification.appendChild(mobileSpecificationContainer)
 
 }
