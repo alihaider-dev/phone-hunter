@@ -1,6 +1,8 @@
 /* Load Phone From API */
 function loadPhone() {
   const searchField = document.getElementById('search-field');
+  document.getElementById('avatar').classList.add('d-none');
+
   const searchText = searchField.value;
   /* Clear Search Keyword */
   searchField.value = '';
@@ -12,13 +14,12 @@ function loadPhone() {
 }
 
 const displayPhone = brands => {
-  // console.log(brands);
+
   const searchResult = document.getElementById('search-result');
   /* Cleare Search Result */
   searchResult.textContent = '';
   /* LOOP */
   brands.forEach(element => {
-    // console.log(element);
     const columnContainer = document.createElement('div');
     columnContainer.classList.add('col-md-4');
     columnContainer.innerHTML = `
@@ -62,10 +63,10 @@ const displayMobileSpecifications = (specifications) => {
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body row">
-      <div class="col-md-5">
+      <div class="col-5">
         <img src="${specifications.image}" class="card-img-top img-fluid w-100 mx-auto pt-3" alt="..." />
       </div>
-      <div class="col-md-7">
+      <div class="col-7">
         <h5 class="card-title">${specifications.name}</h5>
         <p class="card-title">${specifications.mainFeatures.storage}</p>
         <hr>
@@ -79,7 +80,7 @@ const displayMobileSpecifications = (specifications) => {
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
     </div>
   `;
   mobileSpecification.appendChild(mobileSpecificationContainer)
