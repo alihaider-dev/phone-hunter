@@ -22,7 +22,7 @@ const displayPhone = brands => {
   /* Cleare Search Result */
   searchResult.textContent = '';
   /* LOOP */
-  brands.forEach(element => {
+  brands.slice(0, 20).forEach(element => {
     const columnContainer = document.createElement('div');
     columnContainer.classList.add('col-md-4');
     columnContainer.innerHTML = `
@@ -41,6 +41,7 @@ const displayPhone = brands => {
       </div>
     `;
     searchResult.appendChild(columnContainer);
+
   });
 }
 
